@@ -13,9 +13,16 @@ const app = express();
 const server = http.createServer(app);
 const PORT = process.env.PORT || 3000;
 
-// Socket.io setup
+// ====================================================================
+// CHANGE 1: Define CORS options to be reused
+// ====================================================================
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || '*'
+};
+
+// Socket.io setup with the new CORS options
 const { Server } = require('socket.io');
-const io = new Server(server, { cors: { origin: '*' } });
+const io = new Server(server, { cors: corsOptions });
 app.set('io', io); // Make io accessible in routes/controllers if needed
 
 // Connect to MongoDB
@@ -24,8 +31,12 @@ connectDB();
 // Periodic timer to close expired questions
 setInterval(() => closeExpiredQuestions(app), 10000); // every 10 seconds
 
-app.use(cors());
+// ====================================================================
+// CHANGE 2: Use the CORS options in the Express middleware
+// ====================================================================
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
+
 
 // API routes
 app.use('/api/teacher', teacherRoutes);
@@ -95,9 +106,6 @@ io.on('connection', (socket) => {
   });
 });
 
-// ====================================================================
-// THIS IS THE ONLY LINE THAT WAS CHANGED FOR THE DEPLOYMENT FIX
-// ====================================================================
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
