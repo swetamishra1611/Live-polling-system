@@ -15,7 +15,7 @@ const PollHistoryPage = () => {
           const teacherName = sessionStorage.getItem("username");
           try {
             // Use backend API: GET /api/teacher/polls?createdBy=teacherName
-            const response = await axios.get(`${apiUrl}/api/teacher/polls?createdBy=${encodeURIComponent(teacherName)}`);
+            const response = await axios.get(`${someUrl}/api/teacher/polls?createdBy=${encodeURIComponent(teacherName)}`);
             setPolls(response.data.data || response.data); // support both array and {data:array}
           } catch (error) {
             console.error("Error fetching polls:", error);

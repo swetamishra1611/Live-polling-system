@@ -16,7 +16,7 @@ const LoginPage = () => {
   const continueToPoll = async () => {
     if (selectedRole === "teacher") {
       try {
-        const res = await axios.post(`${apiUrl}/api/teacher/register`, { name: "teacher-" + Date.now() });
+        const res = await axios.post(`${someUrl}/api/teacher/register`, { name: "teacher-" + Date.now() });
         sessionStorage.setItem("userId", res.data._id);
         sessionStorage.setItem("username", res.data.name);
         sessionStorage.setItem("role", "teacher");

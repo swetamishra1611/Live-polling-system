@@ -14,7 +14,7 @@ const StudentLandingPage = () => {
     e.preventDefault();
     if (name.trim()) {
       try {
-        const res = await axios.post(`${apiUrl}/api/student/register`, { name });
+        const res = await axios.post(`${someUrl}/api/student/register`, { name });
         sessionStorage.setItem("userId", res.data._id);
         sessionStorage.setItem("username", res.data.name);
         sessionStorage.setItem("role", "student");

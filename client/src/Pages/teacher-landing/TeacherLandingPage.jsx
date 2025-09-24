@@ -75,14 +75,14 @@ const TeacherLandingPage = () => {
       try {
         const teacherName = sessionStorage.getItem("username");
         // Create poll
-        const pollRes = await axios.post(`${apiUrl}/api/teacher/polls`, {
+        const pollRes = await axios.post(`${someUrl}/api/teacher/polls`, {
           title: question,
           createdBy: teacherName
         });
         // Ask question
         const pollId = pollRes.data._id;
         const optionsArr = options.map((opt) => opt.text);
-        await axios.post(`${apiUrl}/api/teacher/polls/${pollId}/questions`, {
+        await axios.post(`${someUrl}/api/teacher/polls/${pollId}/questions`, {
           text: question,
           options: optionsArr
         });
