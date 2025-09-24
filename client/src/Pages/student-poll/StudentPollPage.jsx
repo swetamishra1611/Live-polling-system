@@ -11,9 +11,8 @@ import stars from "../../assets/spark.svg";
 // DELETE the old line.
 // ADD these new lines.
 
-const URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
-
-const socket = io(URL);
+const someUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+const socket = io(someUrl);
 
 const StudentPollPage = () => {
   // CHANGE: We'll simplify state. This one object will hold all the poll info.

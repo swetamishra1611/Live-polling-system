@@ -4,10 +4,8 @@ import "./TeacherLandingPage.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import eyeIcon from "../../assets/eye.svg";
-let apiUrl =
-  import.meta.env.VITE_NODE_ENV === "production"
-    ? import.meta.env.VITE_API_BASE_URL
-    : "http://localhost:3000";
+const someUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+const socket = io(someUrl);
 const TeacherLandingPage = () => {
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState([{ id: 1, text: "", correct: null }]);
