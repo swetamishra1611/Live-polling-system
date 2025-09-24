@@ -1,0 +1,6 @@
+- [x] Scaffold the Project
+- [x] Frontend: React (Redux template) in `frontend/`
+- [x] Backend: Express.js with Socket.io in `backend/`
+- [ ] Implement features as per assignment
+- [ ] Ensure UI matches Figma design
+- [ ] Add documentation and instructions
