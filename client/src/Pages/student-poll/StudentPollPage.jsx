@@ -55,7 +55,7 @@ const StudentPollPage = () => {
     const username = sessionStorage.getItem("username");
     let studentId = sessionStorage.getItem("studentId");
     if (username && !studentId) {
-      fetch(`${apiUrl}/api/student/register`, {
+      fetch(`${someUrl}/api/student/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: username }),
