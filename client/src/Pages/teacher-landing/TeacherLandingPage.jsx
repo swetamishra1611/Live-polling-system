@@ -4,6 +4,7 @@ import "./TeacherLandingPage.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import eyeIcon from "../../assets/eye.svg";
+import { io } from "socket.io-client"; 
 const someUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 const socket = io(someUrl);
 const TeacherLandingPage = () => {

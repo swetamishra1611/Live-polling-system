@@ -3,6 +3,7 @@ import stars from "../../assets/spark.svg";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { io } from "socket.io-client"; 
 const someUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 const socket = io(someUrl);
 const LoginPage = () => {

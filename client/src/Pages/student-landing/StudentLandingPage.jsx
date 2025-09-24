@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import stars from "../../assets/spark.svg";
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client"; 
 import "./StudentLandingPage.css";
 import axios from "axios";
 const someUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';

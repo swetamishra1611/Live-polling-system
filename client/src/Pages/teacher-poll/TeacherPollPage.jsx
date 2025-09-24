@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import io from "socket.io-client";
+import {io} from "socket.io-client";
 import ChatPopover from "../../components/chat/ChatPopover";
 import { useNavigate } from "react-router-dom";
 import eyeIcon from "../../assets/eye.svg";
@@ -9,9 +9,8 @@ import eyeIcon from "../../assets/eye.svg";
 // DELETE the old line.
 // ADD these new lines.
 
-const URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
-
-const socket = io(URL);
+const someUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+const socket = io(someUrl);
 
 const TeacherPollPage = () => {
   // CHANGE: We will use a single state object to hold all live poll data.

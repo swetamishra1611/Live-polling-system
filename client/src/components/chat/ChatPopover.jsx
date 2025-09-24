@@ -6,6 +6,7 @@ import "./Chat.css";
 import chatIcon from "../../assets/chat.svg";
 
 const someUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+const socket = io(someUrl);
 
 const ChatPopover = () => {
   const [messages, setMessages] = useState([]);
