@@ -8,11 +8,12 @@ import { useNavigate } from "react-router-dom";
 import stars from "../../assets/spark.svg";
 
 // This setup is good, no changes needed here.
-let apiUrl =
-  import.meta.env.VITE_NODE_ENV === "production"
-    ? import.meta.env.VITE_API_BASE_URL
-    : "http://localhost:3000";
-const socket = io(apiUrl);
+// DELETE the old line.
+// ADD these new lines.
+
+const URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+
+const socket = io(URL);
 
 const StudentPollPage = () => {
   // CHANGE: We'll simplify state. This one object will hold all the poll info.

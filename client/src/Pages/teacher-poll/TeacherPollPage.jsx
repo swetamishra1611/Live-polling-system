@@ -6,11 +6,12 @@ import { useNavigate } from "react-router-dom";
 import eyeIcon from "../../assets/eye.svg";
 
 // This setup is good, no changes needed.
-let apiUrl =
-  import.meta.env.VITE_NODE_ENV === "production"
-    ? import.meta.env.VITE_API_BASE_URL
-    : "http://localhost:3000";
-const socket = io(apiUrl);
+// DELETE the old line.
+// ADD these new lines.
+
+const URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+
+const socket = io(URL);
 
 const TeacherPollPage = () => {
   // CHANGE: We will use a single state object to hold all live poll data.
